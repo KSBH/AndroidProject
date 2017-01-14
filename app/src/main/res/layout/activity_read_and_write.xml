@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_read_and_write"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.karim.autochecketmat.ReadAndWrite">
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="100dp"
+    android:id="@+id/lyout_comp">
+
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:id="@+id/tv_rw_nbrbot"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/tv_rw_show"
+        android:layout_toEndOf="@+id/tv_rw_show"
+        android:id="@+id/tv_rw_se_onoff" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/cb_rw_switchseonoff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecteur en service :"
+        android:id="@+id/tv_rw_show2"
+        android:layout_alignBaseline="@+id/cb_rw_switchseonoff"
+        android:layout_alignBottom="@+id/cb_rw_switchseonoff"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Nombre de bouteilles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_rw_show"
+        android:layout_below="@+id/tv_rw_se_onoff"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Arrivée de bouteilles"
+        android:layout_below="@+id/tv_rw_nbrbot"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/tv_rw_arbot"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:id="@+id/tv_rw_ar_onoff"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_rw_arbot"
+        android:text="Comprimés 5 : "
+        android:id="@+id/tv_rw_comp5"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_rw_comp5"
+        android:layout_toEndOf="@+id/tv_rw_comp5"
+        android:layout_below="@+id/tv_rw_arbot"
+        android:id="@+id/tv_rw_rcomp5"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_rw_comp5"
+        android:text="Comprimés 10 : "
+        android:id="@+id/tv_rw_comp10"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_rw_comp10"
+        android:layout_toEndOf="@+id/tv_rw_comp10"
+        android:layout_below="@+id/tv_rw_comp5"
+        android:id="@+id/tv_rw_rcomp10"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_rw_comp10"
+        android:text="Comprimés 15 : "
+        android:id="@+id/tv_rw_comp15"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_rw_comp15"
+        android:layout_toEndOf="@+id/tv_rw_comp15"
+        android:layout_below="@+id/tv_rw_comp10"
+        android:id="@+id/tv_rw_rcomp15"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_rw_arbot"
+        android:layout_alignBottom="@+id/tv_rw_arbot"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/cb_rw_switcharonoff"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="69dp"
+        android:id="@+id/bt_rw_connexion"
+        android:layout_below="@+id/cb_rw_switcharonoff"
+        android:layout_toRightOf="@+id/tv_rw_show"
+        android:layout_toEndOf="@+id/tv_rw_show"
+        android:onClick="connecting"
+        android:text="Connexion S7"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_rw_connexion"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="13dp"
+        android:id="@+id/tv_rw_plc" />
+</RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comprimes"
+        android:id="@+id/bt_rw_comp"
+        android:layout_margin="5dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Regulation"
+
+        android:id="@+id/reg"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:id="@+id/lyout_reg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vanne 1:"
+            android:id="@+id/vanne1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/vanne1"
+            android:layout_toRightOf="@+id/vanne1"
+            android:id="@+id/tv_rw_van1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/vanne2"
+            android:text="Vanne 2:"
+            android:layout_below="@+id/vanne1"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_rw_van2"
+            android:layout_toRightOf="@+id/vanne2"
+            android:layout_toEndOf="@+id/vanne2"
+            android:layout_below="@+id/vanne1"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/vanne3"
+            android:text="Vanne 3:"
+            android:layout_below="@+id/vanne2"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_rw_van3"
+            android:layout_toRightOf="@+id/vanne3"
+            android:layout_toEndOf="@+id/vanne3"
+            android:layout_below="@+id/vanne2"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/vanne4"
+            android:text="Vanne 4:"
+            android:layout_below="@+id/vanne3"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_rw_van4"
+            android:layout_toRightOf="@+id/vanne4"
+            android:layout_toEndOf="@+id/vanne4"
+            android:layout_below="@+id/vanne3"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/vanne5"
+            android:text="Vanne 2"
+            android:layout_below="@+id/vanne4"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_rw_vanmanu"
+            android:layout_toRightOf="@+id/vanne5"
+            android:layout_toEndOf="@+id/vanne5"
+            android:layout_below="@+id/vanne4"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>
