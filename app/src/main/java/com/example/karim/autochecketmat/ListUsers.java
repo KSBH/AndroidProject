@@ -20,11 +20,9 @@ public class ListUsers extends AppCompatActivity {
     }
 
     private void populateListView() {
-
         helper.findUsers();
         ArrayAdapter<String> adapt= new ArrayAdapter<>(this, R.layout.myusers,helper.userss);
         ListView list = (ListView)findViewById(R.id.lv_li_lu);
         list.setAdapter(adapt);
-
     }
 }

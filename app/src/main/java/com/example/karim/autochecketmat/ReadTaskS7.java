@@ -20,6 +20,7 @@ import SimaticS7.S7Client;
 import SimaticS7.S7OrderCode;
 
 public class ReadTaskS7 {
+    private Admin ad;
     private static final int MESSAGE_PRE_EXECUTE = 1;
     private static final int MESSAGE_PROGRESS_UPDATE = 2;
     private static final int MESSAGE_POST_EXECUTE = 3;
@@ -43,7 +44,6 @@ public class ReadTaskS7 {
     private TextView tv_rw_van5;
 
     private TextView tv_read;
-
 
     private AutomateS7 plcS7;
     private Thread readThread;
@@ -87,7 +87,7 @@ public class ReadTaskS7 {
 
         comS7 = new S7Client();
         plcS7 = new AutomateS7();
-
+        ad = new Admin();
         readThread = new Thread(plcS7);
     }
 

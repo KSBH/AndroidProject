@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class DBHelper extends SQLiteOpenHelper {
 
     protected ArrayList<String> userss = new ArrayList<>();
-
     private static final int DATABASE_VERSION=1;
     private static final String DATABASE_NAME= "users.db";
     private static final String TABLE_NAME= "users";
@@ -26,6 +25,10 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_NAME="name";
     private static final String COLUMN_FRISTNAME = "fristname";
     private static final String COLUMN_PASSWORD= "password";
+    //using a second more unique id to use for deletion
+    private static final String COLUMN_UUID = "uuid";
+    //will be used as a boolean to use for deletion
+    private static final String COLUMN_ISACTIVE = "isactive";
     SQLiteDatabase db;
 
     private static final String TABLE_CREATE = "create table users (id integer primary key not null ," +
@@ -54,6 +57,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMN_FRISTNAME,u.getFristName());
         values.put(COLUMN_NAME,u.getName());
         values.put(COLUMN_PASSWORD,u.getPassword());
+        values.put(COLUMN_ISACTIVE,u.getIsactive());
 
         db.insert(TABLE_NAME , null , values);
         db.close();
@@ -61,8 +65,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public String searchPass(String username){
 
         db = this.getReadableDatabase();
-        String query = "select username, password from "+ TABLE_NAME;
-
+        String query = "select username, password from "+ TABLE_NAME +"where isactive is true";
 
         Cursor cursor = db.rawQuery(query,null);
 
@@ -70,7 +73,6 @@ public class DBHelper extends SQLiteOpenHelper {
         b = "not found";
         if(cursor.moveToFirst()){
             do{
-
                 a = cursor.getString(0);
                 if(a.equals(username)) {
                     b = cursor.getString(1);
@@ -83,27 +85,28 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public ArrayList<String> findUsers(){
 
-
-
         db = this.getReadableDatabase();
-        String query = "select username from "+TABLE_NAME;
+        String query = "select username from "+TABLE_NAME+"where isactive is true";
 
         Cursor cursor = db.rawQuery(query,null);
 
-
-
         if (cursor.moveToFirst()){
             do{
-
               userss.add(cursor.getString(cursor.getColumnIndex("username")));
-
-            }while (cursor.moveToNext());
+              }while (cursor.moveToNext());
         }
-
         return userss ;
 
     }
+    public void deleteUser(Users u){
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
 
+        String query ="select username from users";
+        Cursor cursor = db.rawQuery(query,null);
+
+
+    }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         String query = "DROP TABLE IF EXISTS"+TABLE_NAME;

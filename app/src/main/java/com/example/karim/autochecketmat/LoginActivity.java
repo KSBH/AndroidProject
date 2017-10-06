@@ -46,8 +46,8 @@ public class LoginActivity extends AppCompatActivity {
                 Intent x = new Intent(LoginActivity.this,ReadAndWrite.class);
                 startActivity(x);
                 finish();
-                cb_rw_switcharonoff.setVisibility(View.INVISIBLE);
-                cb_rw_switchseonoff.setVisibility(View.INVISIBLE);
+                //cb_rw_switcharonoff.setVisibility(View.INVISIBLE);
+                //cb_rw_switchseonoff.setVisibility(View.INVISIBLE);
 
 
             }

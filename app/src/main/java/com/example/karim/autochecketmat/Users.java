@@ -1,5 +1,9 @@
 package com.example.karim.autochecketmat;
 
+import android.util.Log;
+
+import java.util.UUID;
+
 /**
  * Created by Karim on 30-12-16.
  */
@@ -7,19 +11,36 @@ package com.example.karim.autochecketmat;
 public class Users {
 
 
-    String username ,password ,name ,fristname;
+    String username;
+    String password;
+    String name;
+    String fristname;
+    String id;
+    boolean isactive;
 
 
+    public boolean getIsactive() {
+        return isactive;
+    }
+
+    public void setIsactive() {
+        this.isactive = true;
+    }
+
+    public void setId(String id){
+        //UUID uid = UUID.randomUUID();
+        this.id = id;
+    }
+
+    public String getId(){
+        return id;
+    }
 
     public void setUsername(String username){
-
         this.username = username;
-
     }
     public String getUsername(){
-
         return username;
-
     }
     public void setName(String name){
 
